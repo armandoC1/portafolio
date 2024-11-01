@@ -11,7 +11,7 @@ const { tags } = Astro.props;
 	<div class="tags-container">
 		{tags.map((tag) => (
 			<span class="tag">
-				<img src={`/src/assets/images/${tag.toLowerCase()}.png`} alt={`${tag} icon`} class="tag-icon" />
+				<img src={`/assets/images/${tag.toLowerCase()}.png`} alt={`${tag} icon`} class="tag-icon" />
 				{tag}
 			</span>
 		))}

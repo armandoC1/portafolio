@@ -8,51 +8,55 @@ const { tags } = Astro.props;
 
 {
 	tags && (
-	<div class="tags-container">
-		{tags.map((tag) => (
-			<span class="tag">
-				<img src={`/assets/images/${tag.toLowerCase()}.png`} alt={`${tag} icon`} class="tag-icon" />
-				{tag}
-			</span>
-		))}
-	</div>
-)}
+		<div class="tags-container">
+			{tags.map((tag) => (
+				<span class="tag">
+					<img
+						src={`/images/${tag.toLowerCase()}.png`}
+						alt={`${tag} icon`}
+						class="tag-icon"
+					/>
+					{tag}
+				</span>
+			))}
+		</div>
+	)
+}
 
 <style>
 	/* Contenedor principal */
-.tags-container {
-	margin-top: 0.5rem;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	width: 66.666%;
-}
+	.tags-container {
+		margin-top: 0.5rem;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		width: 66.666%;
+	}
 
-/* Estilo para cada etiqueta */
-.tag {
-	display: inline-flex;
-	align-items: center;
-	background-color: #f3f4f6;
-	color: #000000;
-	border-radius: 9999px;
-	padding: 0.3rem 0.9rem; /* Padding más amplio */
-	font-size: 0.875rem; /* Aumenta el tamaño de fuente a 14px */
-	font-weight: 500;
-	transition: background-color 0.3s ease;
-	margin-bottom: 0.5rem;
-}
+	/* Estilo para cada etiqueta */
+	.tag {
+		display: inline-flex;
+		align-items: center;
+		background-color: #f3f4f6;
+		color: #000000;
+		border-radius: 9999px;
+		padding: 0.3rem 0.9rem; /* Padding más amplio */
+		font-size: 0.875rem; /* Aumenta el tamaño de fuente a 14px */
+		font-weight: 500;
+		transition: background-color 0.3s ease;
+		margin-bottom: 0.5rem;
+	}
 
-/* Imagen dentro de la etiqueta */
-.tag-icon {
-	width: 25px; /* Aumenta el tamaño de la imagen */
-	height: 25px;
-	border-radius: 50%; /* Mantiene la imagen circular */
-	margin-right: 0.5rem; /* Espacio entre la imagen y el texto */
-}
+	/* Imagen dentro de la etiqueta */
+	.tag-icon {
+		width: 25px; /* Aumenta el tamaño de la imagen */
+		height: 25px;
+		border-radius: 50%; /* Mantiene la imagen circular */
+		margin-right: 0.5rem; /* Espacio entre la imagen y el texto */
+	}
 
-/* Efecto hover para cada etiqueta */
-.tag:hover {
-	background-color: #e5e7eb;
-}
-
+	/* Efecto hover para cada etiqueta */
+	.tag:hover {
+		background-color: #e5e7eb;
+	}
 </style>

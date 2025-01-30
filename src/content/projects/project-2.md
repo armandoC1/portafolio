@@ -7,5 +7,5 @@ description: >
 img_alt: Imagen del proyecto
 imageUrl: /images/fro.png
 link: https://xchangesv.es
-tags: ['Nest JS', 'MySQL', 'TypeScript']
+tags: ['Next JS', 'tailwind', 'TypeScript']
 ---

@@ -24,7 +24,6 @@ const { tags } = Astro.props;
 }
 
 <style>
-	/* Contenedor principal */
 	.tags-container {
 		margin-top: 0.5rem;
 		display: flex;
@@ -33,29 +32,26 @@ const { tags } = Astro.props;
 		width: 66.666%;
 	}
 
-	/* Estilo para cada etiqueta */
 	.tag {
 		display: inline-flex;
 		align-items: center;
 		background-color: #f3f4f6;
 		color: #000000;
 		border-radius: 9999px;
-		padding: 0.3rem 0.9rem; /* Padding más amplio */
-		font-size: 0.875rem; /* Aumenta el tamaño de fuente a 14px */
+		padding: 0.3rem 0.9rem;
+		font-size: 0.875rem;
 		font-weight: 500;
 		transition: background-color 0.3s ease;
 		margin-bottom: 0.5rem;
 	}
 
-	/* Imagen dentro de la etiqueta */
 	.tag-icon {
-		width: 25px; /* Aumenta el tamaño de la imagen */
+		width: 25px; 
 		height: 25px;
-		border-radius: 50%; /* Mantiene la imagen circular */
-		margin-right: 0.5rem; /* Espacio entre la imagen y el texto */
+		border-radius: 50%;
+		margin-right: 0.5rem; 
 	}
 
-	/* Efecto hover para cada etiqueta */
 	.tag:hover {
 		background-color: #e5e7eb;
 	}

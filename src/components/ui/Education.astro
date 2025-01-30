@@ -1,0 +1,124 @@
+---
+// Education.astro
+interface TimelineItem {
+  period: string;
+  title: string;
+  description: string;
+  institution: string;
+}
+
+const higherEducation: TimelineItem[] = [
+  {
+    period: "Actualidad",
+    title: "Ingenieria en Sistemas Computacionales",
+    institution: "Universidad Dr. Andres Bello",
+    description: "Diseño, desarrollo y mantenimiento de sistemas, gestión de bases de datos y creación de software adaptado a las necesidades tecnológicas actuales.",
+  },
+  {
+    period: "2024-2024",
+    title: "Técnico En Ingeniería de Desarrollo de Software",
+    institution: "ESFE/AGAPE",
+    description: "Diseñar, desarrollar y mantener software, asegurando su correcto funcionamiento y adaptándolo a las necesidades de los usuarios.",
+  },
+];
+
+const otherEducation: TimelineItem[] = [
+  {
+    period: "2023",
+    title: "Java Fundamentals",
+    institution: "Insaforp",
+    description: "Aprendi los fundamentos de la programacion con el lenguaje de programacion Java, incluyendo POO.",
+  },
+  {
+    period: "2024",
+    title: "Curso PHP Laravel",
+    institution: "ESFE/AGAPE",
+    description: "Aprendí habilidades de desarrollo con el framework Laravel y lenguaje de programacion PHP haciendo CRUD a base de datos.",
+  },
+];
+---
+
+<section
+  data-testid="education"
+  id="education"
+  class="w-full py-20 md:py-28 bg-gray-100 dark:bg-gray-900 transition-colors duration-300"
+>
+  <div class="container mx-auto px-4 max-w-4xl">
+    <div class="mb-16">
+      <div class="flex flex-col items-center justify-center mb-12">
+        <h2 class="font-monospace text-2xl text-orange lg:text-4xl mb-4">
+          Educación Superior
+        </h2>
+        <div class="h-1 w-20 bg-orange rounded-full"></div>
+      </div>
+
+      <div class="space-y-8">
+        {higherEducation.map((item) => (
+          <div class="relative pl-8 border-l-2 border-orange/30">
+            <div class="absolute w-4 h-4 bg-orange rounded-full -left-[9px] top-2 border-4 border-gray-100 dark:border-gray-900 shadow-md"></div>
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+              <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                  <h3 class="text-xl font-bold text-orange">
+                    {item.title}
+                  </h3>
+                  <p class="text-sm text-black">
+                    {item.institution}
+                  </p>
+                </div>
+                <span class="inline-flex px-4 py-1.5 text-sm bg-orange/10 text-orange dark:text-orange-300 rounded-full font-medium">
+                  {item.period}
+                </span>
+              </div>
+              <p class="mt-4 text-black leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Otros -->
+    <div>
+      <div class="flex flex-col items-center justify-center mb-12">
+        <h2 class="font-monospace text-2xl text-orange lg:text-4xl mb-4">
+          Otros
+        </h2>
+        <div class="h-1 w-20 bg-orange rounded-full"></div>
+      </div>
+
+      <div class="space-y-8">
+        {otherEducation.map((item) => (
+          <div class="relative pl-8 border-l-2 border-orange/30">
+            <div class="absolute w-4 h-4 bg-orange rounded-full -left-[9px] top-2 border-4 border-gray-100 dark:border-gray-900 shadow-md"></div>
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+              <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                  <h3 class="text-xl font-bold text-orange">
+                    {item.title}
+                  </h3>
+                  <p class="text-sm text-black">
+                    {item.institution}
+                  </p>
+                </div>
+                <span class="inline-flex px-4 py-1.5 text-sm bg-orange/10 text-orange dark:text-orange-300 rounded-full font-medium">
+                  {item.period}
+                </span>
+              </div>
+              <p class="mt-4 text-black leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .font-monospace {
+    font-family: 'Space Mono', monospace;
+  }
+</style>

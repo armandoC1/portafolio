@@ -10,13 +10,24 @@ export interface LayoutProps {
 const { title = 'Carlos Hernandez | Backend developer' } = Astro.props as LayoutProps;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth" data-testid="html">
 	<head>
-		<SEO
-			title="Portafolio Carlos Hernandez"
-			description="Portafolio ."
-		/>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-2FNGEXENMW"></script>
+		<script>
+			// @ts-ignore
+			window.dataLayer = window.dataLayer || [];
+			// @ts-ignore
+			function gtag() {
+				// @ts-ignore
+				window.dataLayer.push(arguments);
+			}
+			// @ts-ignore
+			gtag('js', new Date());
+			// @ts-ignore
+			gtag('config', 'G-2FNGEXENMW');
+		</script>
+		<SEO title="Portafolio Carlos Hernandez" description="Portafolio ." />
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />

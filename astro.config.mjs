@@ -2,7 +2,7 @@
 import mdx from '@astrojs/mdx';
 import tailwind from '@astrojs/tailwind';
 import icon from 'astro-icon';
-import { defineConfig, sharpImageService } from 'astro/config'; 
+import { defineConfig } from 'astro/config'; 
 
 export default defineConfig({
   integrations: [
@@ -10,5 +10,4 @@ export default defineConfig({
     mdx(),
     icon({ include: { mdi: ['*'] } })
   ],
-  image: { service: sharpImageService() } 
 });

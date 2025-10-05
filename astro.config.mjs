@@ -8,8 +8,5 @@ export default defineConfig({
     include: {
       mdi: ["*"]
     }
-  })],
-  image: {
-    service: squooshImageService()
-  }
+  })]
 });

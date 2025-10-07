@@ -1,0 +1,122 @@
+<link
+  href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css"
+  rel="stylesheet"
+/>
+
+<script type="module">
+  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+  // Instancia única del chat
+  const chat = createChat({
+    webhookUrl:
+      'https://armandodev.app.n8n.cloud/webhook/e8e85cf1-1d0f-43a4-bb67-8c24b457ed38/chat',
+    mode: 'window',
+    loadPreviousSession: true,
+    showWelcomeScreen: false,
+    defaultLanguage: 'es',
+    initialMessages: [
+      '¡Hola! 👋',
+      'Soy ArmBot, ¿en qué puedo ayudarte hoy?',
+    ],
+    i18n: {
+      es: {
+        title: 'ArmBot 🤖',
+        subtitle: 'Estoy aquí para ayudarte 24/7.',
+        footer: '',
+        getStarted: 'Nueva conversación',
+        inputPlaceholder: 'Escribe tu mensaje...',
+      },
+    },
+    enableStreaming: false,
+  });
+
+  window._n8nChat = chat;
+</script>
+
+<style>
+  :root {
+    /* 🎨 Paleta de colores base */
+    --chat--color-primary: #e74266;
+    --chat--color-primary-shade-50: #db4061;
+    --chat--color-primary-shade-100: #cf3c5c;
+    --chat--color-secondary: #20b69e;
+    --chat--color-white: #ffffff;
+    --chat--color-dark: #101330;
+
+    /* 💬 Configuración general */
+    --chat--spacing: 1rem;
+    --chat--border-radius: 12px;
+    --chat--transition-duration: 0.18s;
+
+    /* 📱 Ventana */
+    --chat--window--width: 400px;
+    --chat--window--height: 640px;
+    --chat--textarea--height: 52px;
+    --chat--z-index: 9999;
+
+    /* 💬 Mensajes */
+    --chat--message--font-size: 0.98rem;
+    --chat--message--bot--background: var(--chat--color-white);
+    --chat--message--bot--color: var(--chat--color-dark);
+    --chat--message--user--background: var(--chat--color-secondary);
+    --chat--message--user--color: var(--chat--color-white);
+
+    /* 🎯 Botón flotante (FAB) */
+    --chat--toggle--background: var(--chat--color-primary);
+    --chat--toggle--hover--background: var(--chat--color-primary-shade-50);
+    --chat--toggle--active--background: var(--chat--color-primary-shade-100);
+    --chat--toggle--color: var(--chat--color-white);
+    --chat--toggle--size: 64px;
+  }
+
+  /* 🌙 Dark mode */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --chat--color-primary: #f97316;
+      --chat--toggle--background: var(--chat--color-primary);
+      --chat--toggle--hover--background: #fb7c1e;
+      --chat--toggle--active--background: #dd6412;
+      --chat--message--bot--background: #1c1f37;
+      --chat--message--bot--color: #eef1ff;
+    }
+  }
+
+  /* 🪄 Estilo del botón flotante (a la izquierda) */
+  #n8n-chat-toggle-button {
+    position: fixed !important;
+    left: 1.5rem !important; /* 📍 lo mueve a la izquierda */
+    right: auto !important;
+    bottom: 1.5rem !important;
+    background: var(--chat--toggle--background) !important;
+    color: var(--chat--toggle--color) !important;
+    width: var(--chat--toggle--size) !important;
+    height: var(--chat--toggle--size) !important;
+    border-radius: 9999px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25) !important;
+    border: none !important;
+    z-index: 99999 !important;
+    transition: all 0.2s ease-in-out !important;
+  }
+
+  #n8n-chat-toggle-button:hover {
+    background: var(--chat--toggle--hover--background) !important;
+    transform: scale(1.05);
+  }
+
+  #n8n-chat-toggle-button:active {
+    background: var(--chat--toggle--active--background) !important;
+    transform: scale(0.97);
+  }
+
+  /* Opcional: scrollbar sutil */
+  .n8n-chat__window ::-webkit-scrollbar {
+    width: 8px;
+  }
+  .n8n-chat__window ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.2);
+  }
+</style>

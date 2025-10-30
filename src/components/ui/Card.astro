@@ -21,7 +21,6 @@ const {
 } = Astro.props as Props;
 ---
 
-<!-- SIN anchos fijos aquí: el padre (grid) decide las columnas -->
 <article
   data-testId="card"
   class="w-full h-full flex flex-col rounded-3xl border border-white/10
@@ -30,7 +29,6 @@ const {
          hover:-translate-y-1 hover:shadow-lg"
 >
   <a href={url} aria-label="link to project" class="block focus:outline-none focus:ring-2 focus:ring-orange/60 rounded-2xl">
-    <!-- Imagen con aspect ratio para evitar saltos de altura -->
     <div class="relative mb-4">
       <img
         src={imageUrl}
@@ -44,7 +42,6 @@ const {
     <div class="flex flex-col flex-1">
       <h3 class="text-xl lg:text-2xl font-semibold text-orange mb-1">{title}</h3>
 
-      <!-- El cuerpo crece para “empujar” el footer abajo -->
       <p class="text-sm text-black dark:text-neutral-300 leading-relaxed flex-1">
         {description}
       </p>

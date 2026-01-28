@@ -1,0 +1,43 @@
+---
+// import heroImage from '@assets/images/yo.jpeg';
+import heroImage from '@assets/images/yo.jpeg';
+import Button from '@components/ui/Button.astro';
+import { Image } from 'astro:assets';
+---
+
+<section
+	data-testid="hero"
+	class="flex h-auto flex-col-reverse items-center justify-start text-center lg:flex-row"
+>
+	<div class="mb-4 flex flex-col items-center lg:mb-0 lg:w-1/2">
+		<div>
+			<h1 class="mb-4 font-monospace text-3xl text-black dark:text-white lg:text-5xl">
+				Hola! Mi nombre es <span class="text-orange">Carlos Hernandez</span> y soy un desarrollador backend
+				en El Salvador.
+			</h1>
+		</div>
+		<div class="mb-10">
+			<Button style={'primary'} size={'lg'} class={'flex'} name="learn more">Mas sobre mi</Button>
+		</div>
+	</div>
+	<div data-testid="hero-img" class="mb-4 mt-10 flex w-1/2 items-center justify-center">
+		<!-- <Image
+			src={heroImage}
+			alt="Coding girl"
+			format="png"
+			width={550}
+			height={550}
+			loading="eager"
+		/> -->
+
+		<img
+			src={heroImage.src}
+			alt="Foto de Carlos"
+			width="550"
+			height="550"
+			loading="eager"
+			decoding="async"
+			class="block"
+		/>
+	</div>
+</section>

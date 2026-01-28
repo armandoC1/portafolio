@@ -1,0 +1,80 @@
+---
+import creativaLogo from '@assets/images/logo-creativa.jpeg';
+
+const workExperience = [
+	{
+		period: 'Junio 2025 - Actualidad',
+		title: 'Desarrollador de Software Jr.',
+		institution: 'Creativa Studios',
+		description:
+			'Mantenimiento de sistemas en diversos stacks tecnológicos asegurando la calidad y funcionalidad del software.',
+		logoURL: creativaLogo,
+	},
+];
+
+const experience = workExperience.map((i) => ({
+	...i,
+	bg: typeof i.logoURL === 'string' ? i.logoURL : i.logoURL?.src,
+}));
+---
+
+<section
+	id="workExperience"
+	class="bg-gray-100 dark:bg-gray-900 w-full py-10 transition-colors duration-300 md:py-20"
+>
+	<div class="container mx-auto max-w-4xl px-4">
+		<div class="mb-16">
+			<div class="mb-12 flex flex-col items-center justify-center">
+				<h2 class="mb-4 font-monospace text-2xl text-orange lg:text-4xl">Experiencia Laboral</h2>
+				<div class="h-1 w-20 rounded-full bg-orange"></div>
+			</div>
+
+			<div class="space-y-8">
+				{
+					experience.map((item) => (
+						<div class="relative border-l-2 border-orange/30 pl-10 md:pl-12">
+							<div class="border-gray-100 dark:border-gray-900 absolute -left-[9px] top-6 h-4 w-4 rounded-full border-4 bg-orange shadow-md" />
+
+							<div class="dark:bg-gray-800 group relative overflow-hidden rounded-xl bg-white p-6 shadow-md transition-all duration-500 hover:shadow-lg">
+								{item.bg && (
+									<div
+										class="pointer-events-none absolute inset-0 z-0
+       bg-contain bg-center bg-no-repeat
+       opacity-0 blur-[0.5px] brightness-110
+       contrast-125 transition-all duration-700 group-hover:opacity-25"
+										style={`background-image: url('${item.bg}'); background-position: center 75%;`}
+										aria-hidden="true"
+									/>
+								)}
+
+								<div class="relative z-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+									<div>
+										<h3 class="text-xl font-bold text-orange">{item.title}</h3>
+										<p class="dark:text-gray-100 text-sm text-black">{item.institution}</p>
+									</div>
+
+									<span
+										class="dark:bg-gray-900/70 dark:text-orange-300 z-20 inline-flex rounded-full border border-orange/20 bg-white/90 px-4 py-1.5
+                   text-sm font-medium text-orange backdrop-blur-[2px]"
+									>
+										{item.period}
+									</span>
+								</div>
+
+								<p class="dark:text-gray-100 relative z-10 mt-4 leading-relaxed text-black">
+									{item.description}
+								</p>
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.font-monospace {
+		font-family: 'Space Mono', monospace;
+	}
+</style>

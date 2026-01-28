@@ -1,0 +1,56 @@
+---
+import Tags from '@components/ui/Tags.astro';
+
+interface Props {
+  url?: string;
+  alt?: string;
+  imageUrl?: string;
+  title?: string;
+  description: string;
+  tags: string[];
+  children?: HTMLElement | HTMLElement[];
+}
+
+const {
+  url = '#',
+  alt = 'Project image',
+  description = 'Project Description',
+  title = 'Project title',
+  tags = ['Tags'],
+  imageUrl = '#',
+} = Astro.props as Props;
+---
+
+<article
+  data-testId="card"
+  class="w-full h-full flex flex-col rounded-3xl border border-white/10
+         bg-white dark:bg-neutral-900 p-4 shadow
+         transition-transform duration-200 transform-gpu
+         hover:-translate-y-1 hover:shadow-lg"
+>
+  <a href={url} aria-label="link to project" class="block focus:outline-none focus:ring-2 focus:ring-orange/60 rounded-2xl">
+    <div class="relative mb-4">
+      <img
+        src={imageUrl}
+        alt={alt || title}
+        loading="lazy"
+        decoding="async"
+        class="w-full aspect-[16/9] object-cover rounded-2xl"
+      />
+    </div>
+
+    <div class="flex flex-col flex-1">
+      <h3 class="text-xl lg:text-2xl font-semibold text-orange mb-1">{title}</h3>
+
+      <p class="text-sm text-black dark:text-neutral-300 leading-relaxed flex-1">
+        {description}
+      </p>
+
+      {tags?.length > 0 && (
+        <div class="mt-3">
+          <Tags tags={tags} />
+        </div>
+      )}
+    </div>
+  </a>
+</article>

@@ -29,6 +29,11 @@ const toolsSkills: Skill[] = [
   { name: "Azure DevOps", icon: "/icons/azure.png" },
   { name: "Git", icon: "/icons/git.png" },
 ];
+
+const devopsSkills: Skill [] = [
+  {name: "Ubuntu Server", icon: "/icons/ubuntu.png"},
+  {name: "Windows Server", icon: "/icons/windows.webp"}
+]
 ---
 
 <section
@@ -69,6 +74,28 @@ const toolsSkills: Skill[] = [
         </h3>
         <div class="flex flex-wrap justify-center gap-8">
           {frontendSkills.map((skill) => (
+            <div class="skill-item relative group">
+              <div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                <img 
+                  src={skill.icon || "/placeholder.svg"} 
+                  alt={skill.name} 
+                  class="h-16 w-16 object-contain"
+                />
+              </div>
+              <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-orange px-3 py-1 rounded text-white text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                {skill.name}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-semibold text-black dark:text-white mb-8 text-center font-monospace">
+          DevOps
+        </h3>
+        <div class="flex flex-wrap justify-center gap-8">
+          {devopsSkills.map((skill) => (
             <div class="skill-item relative group">
               <div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
                 <img 

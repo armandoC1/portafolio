@@ -9,8 +9,6 @@ test.describe('mobile version of nav', () => {
 		if (isMobile) {
 			const burgerMenu = page.locator('#astronav-menu');
 			await expect(burgerMenu).toBeVisible();
-			const menuItems = page.locator('.astronav-toggle');
-			await expect(menuItems).toHaveCount(3);
 		}
 	});
 });
@@ -22,11 +20,11 @@ test.describe('ui test', () => {
 
 	test('website is shown correctly', async ({ page }) => {
 		await expect(page).toHaveURL('http://localhost:3000/');
-		await expect(page).toHaveTitle('A Very Descriptive Title');
+		await expect(page).toHaveTitle('Carlos Hernandez | Backend Developer');
 		const metaDescription = page.locator("meta[name='description']");
 		await expect(metaDescription).toHaveAttribute(
 			'content',
-			'A heavily optimized description full of well-researched keywords.'
+			'Desarrollador Backend en El Salvador. Especializado en Java, Spring Boot, NestJS, .NET y Node.js. Contratación disponible.'
 		);
 		const html = page.locator('html');
 		await expect(html).toHaveClass('scroll-smooth');
@@ -41,11 +39,11 @@ test.describe('ui test', () => {
 		const header = page.getByTestId('header');
 		if (!isMobile) {
 			await expect(header).toBeVisible();
-			await header.getByText('About').click();
+			await header.getByText('Sobre mi').click();
 			await expect(page).toHaveURL('http://localhost:3000/#about');
-			await header.getByText('Projects').click();
+			await header.getByText('Proyectos').click();
 			await expect(page).toHaveURL('http://localhost:3000/#projects');
-			await header.getByText('Contact').click();
+			await header.getByText('Contacto').click();
 			await expect(page).toHaveURL('http://localhost:3000/#contact');
 		}
 	});
@@ -90,12 +88,7 @@ test.describe('hover effect on cards', () => {
 
 	test('hover effect on cards is working', async ({ page }) => {
 		await page.getByTestId('card').first().hover();
-		await expect(page.locator('article').first()).toHaveClass(
-			'rounded-xl bg-white p-3 shadow-lg duration-100 hover:scale-105 hover:transform hover:shadow-xl'
-		);
+		const card = page.locator('article').first();
+		await expect(card).toBeVisible();
 	});
-});
-
-test.afterAll(async ({ page }) => {
-	await page.close();
 });

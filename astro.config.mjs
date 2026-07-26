@@ -2,12 +2,15 @@
 import mdx from '@astrojs/mdx';
 import tailwind from '@astrojs/tailwind';
 import icon from 'astro-icon';
-import { defineConfig } from 'astro/config'; 
+import sitemap from '@astrojs/sitemap';
+import { defineConfig } from 'astro/config';
 
 export default defineConfig({
+  site: 'https://armandodev.site',
   integrations: [
     tailwind(),
     mdx(),
-    icon({ include: { mdi: ['*'] } })
+    icon({ include: { mdi: ['*'] } }),
+    sitemap(),
   ],
 });

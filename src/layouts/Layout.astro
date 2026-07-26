@@ -4,37 +4,74 @@ import Navbar from '@components/Navbar.astro';
 import { SEO } from 'astro-seo';
 
 export interface LayoutProps {
-	title: string;
+  title?: string;
+  description?: string;
 }
 
-const { title = 'Carlos Hernandez | Backend developer' } = Astro.props as LayoutProps;
+const {
+  title = 'Carlos Hernandez | Backend Developer',
+  description = 'Desarrollador Backend en El Salvador. Especializado en Java, Spring Boot, NestJS, .NET y Node.js. Contratación disponible.',
+} = Astro.props as LayoutProps;
+
+const canonicalURL = new URL(Astro.url.pathname, 'https://armandodev.site');
+const ogImage = new URL('/og-image.png', 'https://armandodev.site');
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth" data-testid="html">
+<html lang="es" class="scroll-smooth" data-testid="html">
 	<head>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-2FNGEXENMW"></script>
 		<script>
-			// @ts-ignore
 			window.dataLayer = window.dataLayer || [];
-			// @ts-ignore
-			function gtag() {
-				// @ts-ignore
-				window.dataLayer.push(arguments);
-			}
-			// @ts-ignore
+			function gtag() { window.dataLayer.push(arguments); }
 			gtag('js', new Date());
-			// @ts-ignore
 			gtag('config', 'G-2FNGEXENMW');
 		</script>
-		<SEO title="Portafolio Carlos Hernandez" description="Portafolio ." />
+
+		<SEO
+			title={title}
+			description={description}
+			canonical={canonicalURL}
+			openGraph={{
+				basic: {
+					title: title,
+					type: 'website',
+					url: canonicalURL,
+					image: ogImage,
+				},
+				image: {
+					url: ogImage,
+					alt: 'Foto de perfil de Carlos Hernandez',
+					width: 1200,
+					height: 630,
+				},
+			}}
+		/>
+
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="generator" content={Astro.generator} />
-		<link rel="icon" type="image/svg+xml" href="/yo.jpeg" />
+		<link rel="icon" type="image/jpeg" href="/yo.jpeg" />
 
-		<title>{title}</title>
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Person",
+				"name": "Carlos Hernandez",
+				"url": "https://armandodev.site",
+				"jobTitle": "Backend Developer",
+				"description": "Desarrollador Backend especializado en Java, Spring Boot, NestJS, .NET y Node.js",
+				"sameAs": [
+					"https://github.com/armandoC1",
+					"https://www.linkedin.com/in/carlos-armando-hernandez-rivera-b51448304/"
+				],
+				"knowsAbout": ["Java", "Spring Boot", "NestJS", ".NET", "Node.js", "TypeScript", "MySQL", "PostgreSQL"],
+				"address": {
+					"@type": "Country",
+					"name": "El Salvador"
+				}
+			}
+		</script>
 	</head>
 	<body
 		class="mx-auto max-w-screen-xl bg-white px-5 font-sans text-white dark:bg-black xs:text-[16px] md:text-[18px]"
@@ -43,8 +80,6 @@ const { title = 'Carlos Hernandez | Backend developer' } = Astro.props as Layout
 		<slot />
 		<Footer />
 		<style is:global>
-			/* Improve Page speed */
-			/* https://css-tricks.com/almanac/properties/c/content-visibility/ */
 			img {
 				content-visibility: auto;
 			}

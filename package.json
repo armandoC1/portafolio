@@ -12,6 +12,7 @@
 	},
 	"dependencies": {
 		"@astrojs/mdx": "^2.2.2",
+		"@astrojs/sitemap": "^3.3.0",
 		"@astrojs/tailwind": "^5.1.0",
 		"@astrojs/ts-plugin": "^1.6.1",
 		"astro": "^4.5.12",
